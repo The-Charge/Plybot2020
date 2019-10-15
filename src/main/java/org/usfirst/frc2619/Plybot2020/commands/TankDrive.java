@@ -43,6 +43,14 @@ public class TankDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        double leftSpeed, rightSpeed;
+        //get speed from joystick
+        rightSpeed = -Robot.oi.rightJoystick.getY();
+        leftSpeed = -Robot.oi.leftJoystick.getY();
+        //adjusting code goes here (scale to appropriate number)
+        leftSpeed = MathUtil.adjSpeed(leftSpeed);
+        rightSpeed = MathUtil.adjSpeed(rightSpeed);
+        Robot.drivetrain.run(leftSpeed, rightSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,6 +62,8 @@ public class TankDrive extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.drivetrain.stop();
+        Robot.drivetrain.setPercentVBus();
     }
 
     // Called when another command which requires one or more of the same
