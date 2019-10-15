@@ -209,13 +209,33 @@ Children:
       Name: HatchItBtn
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: ['0', '1', '2', '3', '4', '5']
+        choices: &id011 ['0', '1', '2', '3', '4', '5']
         default: 1
         name: Number
-        validators: [Joystick]
-        value: '0'
+        validators: &id012 [Joystick]
+        value: '4'
     Base: Joystick
     Name: GamePad
+  - Children: []
+    Properties:
+      Number: !!robotbuilder.data.properties.ChoicesProperty
+        choices: *id011
+        default: 1
+        name: Number
+        validators: *id012
+        value: '0'
+    Base: Joystick
+    Name: rightJoystick
+  - Children: []
+    Properties:
+      Number: !!robotbuilder.data.properties.ChoicesProperty
+        choices: *id011
+        default: 1
+        name: Number
+        validators: *id012
+        value: '1'
+    Base: Joystick
+    Name: leftJoystick
   Properties: {}
   Base: OI
   Name: Operator Interface
@@ -329,9 +349,9 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\ashwi\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\jmg09\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\workspace'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\ashwi\FRCProjects',
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\jmg09\FRCProjects',
     extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\workspace'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
