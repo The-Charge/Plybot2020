@@ -58,6 +58,11 @@ public class Hatch extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
 
+    public void hatchPlease()
+    {
+        hacthPiston.set(true);
+    }
+
     @Override
     public void periodic() {
         // Put code here to be run every loop

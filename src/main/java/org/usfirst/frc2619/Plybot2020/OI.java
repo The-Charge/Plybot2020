@@ -56,6 +56,8 @@ public class OI {
     public JoystickButton hatchItBtn;
     public JoystickButton extendBtn;
     public JoystickButton retractBtn;
+    public JoystickButton positiveSpeedIntakeBtn;
+    public JoystickButton negativeSpeedIntakeBtn;
     public Joystick gamePad;
     public Joystick rightJoystick;
     public Joystick leftJoystick;
@@ -71,6 +73,10 @@ public class OI {
         
         gamePad = new Joystick(4);
         
+        negativeSpeedIntakeBtn = new JoystickButton(gamePad, 1);
+        negativeSpeedIntakeBtn.whileHeld(new SPControl(-1));
+        positiveSpeedIntakeBtn = new JoystickButton(gamePad, 1);
+        positiveSpeedIntakeBtn.whileHeld(new SPControl(1));
         retractBtn = new JoystickButton(gamePad, 4);
         retractBtn.whileHeld(new Retract());
         extendBtn = new JoystickButton(gamePad, 3);
