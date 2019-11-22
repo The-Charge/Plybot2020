@@ -85,7 +85,7 @@ public class Intake extends Subsystem {
         motor1.set(ControlMode.Velocity,0);
         motor2.set(ControlMode.Velocity,0);
     }
-    
+
     public void SpeedMode(double speed)
     {
         motor1.set(ControlMode.Velocity, speed);
@@ -101,6 +101,12 @@ public class Intake extends Subsystem {
     public void setPercentVBus(){
         motor1.set(ControlMode.PercentOutput, 0);
         motor2.set(ControlMode.PercentOutput, 0);
+    }
+
+    public void stop(){
+        motor1.set(0);
+        motor2.set(0);
+    
     }
 }
 
