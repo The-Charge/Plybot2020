@@ -27,6 +27,17 @@ import org.usfirst.frc2619.Plybot2020.subsystems.*;
  * creating this project, you must also update the build.properties file in 
  * the project.
  */
+//The Robot Class
+//"Main" of the robot
+//instantiates the Subsystems
+//Also runs the SmartDashboard which serves as IO/UI
+//The scheduler
+/**
+ * State Based Programming
+ * Autonomous  //init and periodic
+ * TeleOp  //init and periodic
+ * 
+ */
 public class Robot extends TimedRobot {
 
     Command autonomousCommand;
@@ -132,7 +143,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        dashboardValues();
+        dashboardValues(); //during competition
         if (DEBUG){
             dashboardDebugValues();
         }
@@ -147,6 +158,10 @@ public class Robot extends TimedRobot {
      * Add useful Dashboard values that are always nessesary
      */
     public void dashboardValues() {
+        //outputting stuff throughout the driving (driver will see)
+        //SmartDashboard.putNumber("Shooter", shooter.isRunningOut)
+        //SmartDashboard.putNumber("Collection Running out", intake.isRunningOut)
+        SmartDashboard.putBoolean("Extended", extension.isExtended());
 	}
 
     /**
@@ -200,7 +215,7 @@ public class Robot extends TimedRobot {
             SmartDashboard.putNumber("Turn I", I);
             SmartDashboard.putNumber("Turn D", D);
             SmartDashboard.putNumber("Turn MinSpeed", MinSpeed);
-            
+            SmartDashboard.putData("Extend", new Extend());
 
         }
     }
