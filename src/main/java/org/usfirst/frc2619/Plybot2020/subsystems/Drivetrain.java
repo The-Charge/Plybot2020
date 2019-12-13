@@ -205,8 +205,8 @@ public class Drivetrain extends Subsystem {
     {
         leftFrontMotor.pidWrite(outputl);
         rightFrontMotor.pidWrite(outputr);
-
     }
+    
 
 }
 
